@@ -5,7 +5,20 @@ export class Url {
         let path = '';
 
         if(resources && resources.length > 0){
-            path = resources.join('/');
+
+            let result = [];
+
+            const resourceReg = /([0-9a-zA-Z\_\-\.]+)/g;
+
+            resources.forEach(value => {
+                var match = resourceReg.exec(value);
+                while(match){
+                    result.push(match[1]);
+                    match = resourceReg.exec(value);
+                }
+            });
+
+            path = result.join('/');
         }
         else{
             console.log(`resolve url failed, resources: ${resources}`);
