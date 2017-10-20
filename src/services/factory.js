@@ -1,8 +1,13 @@
 import { Url } from '../utils/url';
+import { Logger } from '../utils/logger';
 
 export class FetchFactory {
 
-    static fetchByIdFactory(resource, funcName){
+    constructor(path){
+        this.path = path;
+    }
+
+    fetchByIdFactory(resource, funcName){
         return id => {
             return new Promise((resolve, reject) => {
                 
@@ -28,19 +33,14 @@ export class FetchFactory {
         };
     }
 
-    static fetchByResourceFactory(resource, funcName){
+    fetchByResourceFactory(resource, funcName){
         return qs => {
             return new Promise((resolve, reject) => {
                 
                 reject = reject || Logger.error;
-    
-                if(isNaN(Number(id))){
-                    const error = `id: ${id} must be number type`;
-                    reject(error);
-                }
                 
                 const queryString = Url.spliceQueryString(qs);
-                const path = `/${Url.resolve(this.path, resource)}/${id}?${queryString}`;  
+                const path = `/${Url.resolve(this.path, resource)}?${queryString}`;  
     
                 fetch(path).then(res => {
                     if(res.status === 200){
