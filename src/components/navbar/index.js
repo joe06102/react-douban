@@ -1,23 +1,14 @@
 import React from 'react';
 import styles from './index.css';
-import fa from 'font-awesome/css/font-awesome.css';
 
-const Navbar = ({bgColor, hamburgerColor, children}) => {
-
-    console.log(fa);
-
+const NavbarWrapper = ({bgColor, children}) => {
     return (
         <div className={styles['navbar']} style={{
-            backgroundColor: bgColor
+            backgroundColor: bgColor || '#fff'
         }}>
-            <div className={styles['hamburger-wrapper']}>
-                <i className={`${fa['fa']} ${fa['fa-bars']} ${fa['fa-2x']}`} style={{
-                    color: hamburgerColor
-                }}/>
-            </div>
-            <div>{children}</div>
+        {children}
         </div>
     );
 };
 
-export { Navbar };
+export { NavbarWrapper };

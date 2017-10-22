@@ -3,15 +3,6 @@
     height: 50px;
     box-shadow: 0 2px 4px #ddd;
     background-color: #fff;
-    font-size: 10px;
-}
-.hamburger-wrapper{
-    width: 5em;
-    height: 5em;
-    text-align: center;
-}
-.hamburger-wrapper > i{
-    width: 24px;
-    height: 26px;
-    margin: 12px 0;
+    margin: 0;
+    padding: 0;
 }
