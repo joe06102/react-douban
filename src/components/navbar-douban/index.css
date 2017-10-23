@@ -1,6 +1,81 @@
-.burger-wrapper{
+/* base rules(only for current components) */
+.root ul, 
+.root li{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
 
+/*
+* layouts 
+*/
+.col{
+    display: inline-block;
+    vertical-align: top;
+}
+.header-col{
+    margin: 0 1.6rem;
+}
+.body-col{
+    margin: 0 1.6rem;
+}
+
+/* modules */
+.root{
+    font-size: 0;
+}
+.burger-wrapper{
+    width: 5rem;
+    height: 5rem;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    font-size: 1rem;
 }
 .burger-menu{
-
+    color: #fff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+}
+.title-douban{
+    color: #fff;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    height: 100%;
+    line-height: 5rem;
+    font-size: 1.6rem;
+}
+.menu{
+    display: inline-block;
+    vertical-align: top;
+    width: 30rem;
+    height: 100%;
+    padding: 0 1.6rem;
+    font-size: 0;
+}
+.menu-item{
+    width: calc((100% - .8rem * 2 * 3) / 3);
+    height: 5rem;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 1.4rem;
+}
+.menu-item:hover{
+    background-color: rgb(4, 126, 65);
+}
+.menu-item-link{
+    width: 100%;
+    height: 100%;
+    line-height: 5rem;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+    background-color: transparent;
 }

@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './index.css';
+import cls from 'classnames'
 
-const NavbarWrapper = ({bgColor, children}) => {
+const NavbarWrapper = ({bgColor, children, className}) => {
+
+    const wrapperCls = cls(className, styles['navbar']);
+
     return (
-        <div className={styles['navbar']} style={{
+        <div className={wrapperCls} style={{
             backgroundColor: bgColor || '#fff'
         }}>
         {children}
