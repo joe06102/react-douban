@@ -10,7 +10,7 @@ ReactDOM.render(
         <div>
             <NavbarDouBan />    
             <Switch>
-                <Route path='/' component={MoviePage}/>                    
+                <Route exact path='/' component={MoviePage}/>                    
                 <Route path='/movie' component={MoviePage}/>
                 <Route path='/music' component={MusicPage}/>
                 <Route path='/book' component={BookPage}/>
