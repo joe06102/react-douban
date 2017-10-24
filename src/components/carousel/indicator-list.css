@@ -25,6 +25,9 @@ ul, li{
     counter-increment: indicators;    
     transition: all .1s ease-in-out;
 }
+.indicator:hover{
+    cursor: pointer;
+}
 .indicator::after{
     content: counter(indicators);
     color: #666;
