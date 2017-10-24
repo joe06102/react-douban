@@ -1,0 +1,11 @@
+.carousel-wrapper{
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+}
+.carousel-indicators{
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
