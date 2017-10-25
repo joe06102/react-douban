@@ -124,8 +124,8 @@ class Carousel extends Component {
 
 export { Carousel };
 
-Carousel.propType = {
+Carousel.propTypes = {
     autoSlide: types.bool,
     reverse: types.bool,
-    style: types.objectOf(types.shape({ width: types.string.isRequired, height: types.string.isRequired })).isRequired
+    style: types.shape({ width: types.string.isRequired, height: types.string.isRequired }).isRequired
 }
