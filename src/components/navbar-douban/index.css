@@ -17,6 +17,7 @@
     margin: 0 1.6rem;
 }
 .body-col{
+    width: calc(100% - 15rem);
     margin: 0 1.6rem;
 }
 

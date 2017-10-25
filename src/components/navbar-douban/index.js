@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavbarWrapper } from '../navbar-wrapper';
+import { SearchBar } from '../searchbar';
 import styles from './index.css';
 import fa from 'font-awesome/css/font-awesome.css';
 import cls from 'classnames';
@@ -27,6 +28,7 @@ const NavbarDouBan = ({context}) => {
                     <li className={styles['menu-item']}><Link className={styles['menu-item-link']} to='/music'>音乐</Link></li>                    
                     <li className={styles['menu-item']}><Link className={styles['menu-item-link']} to='/book'>书籍</Link></li>
                 </ul>
+                <SearchBar style={{ float: 'right' }} search={ text => console.log(text) }/>
             </div>
         </NavbarWrapper>
     );
