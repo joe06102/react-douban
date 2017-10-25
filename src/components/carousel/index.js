@@ -9,9 +9,6 @@ class Carousel extends Component {
     constructor(props){
         super(props);
         this.state = { curIndex: 0 };
-        this.count = 0;
-        this.timer = Date.now();
-        this.step = 1;
         this.jumpTo = this.jumpTo.bind(this);
     }
 
@@ -21,33 +18,43 @@ class Carousel extends Component {
 
     initAutomation(){
         
-        const { autoSlide, interval } = this.props;
+        const { autoplay, interval, reverse, children } = this.props;
+        const count = React.Children.count(children);
         
-        if(autoSlide){
+        if(autoplay){
             this.timer = setInterval(() => {
-                if(this.state.curIndex >= this.count - 1){
-                    if(this.props.reverse){
+
+                if(this.state.curIndex >= count - 1){
+                    if(reverse){
                         this.step = -1;
                     }
-                    else{
-                        clearInterval(this.timer);
+                    else {
+                        if(this.step > 0){
+                            clearInterval(this.timer);
+                            return;
+                        }
                     }
                 }
                 else if(this.state.curIndex <= 0){
-                    if(this.props.reverse){
+                    if(reverse){
                         this.step = 1;
                     }
                     else{
-                        clearInterval(this.timer);
+                        if(this.step < 0){
+                            clearInterval(this.timer);
+                            return;
+                        }
                     }
                 }
+
                 this.setState({curIndex: this.state.curIndex + this.step});                
             }, interval);
         }
     }
 
     componentDidMount(){
-        this.count = React.Children.count(this.props.children);
+        this.timer = Date.now();
+        this.step = 1;        
         this.initAutomation();
     }
 
@@ -125,7 +132,7 @@ class Carousel extends Component {
 export { Carousel };
 
 Carousel.propTypes = {
-    autoSlide: types.bool,
+    autoplay: types.bool,
     reverse: types.bool,
     style: types.shape({ width: types.string.isRequired, height: types.string.isRequired }).isRequired
 }
