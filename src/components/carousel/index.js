@@ -123,7 +123,12 @@ class Carousel extends Component {
                     count={React.Children.count(this.props.children)} 
                     curIndex={this.state.curIndex} 
                     jumpTo={this.jumpTo} 
-                    className={styles['carousel-indicators']} />        
+                    style={{
+                        position: 'absolute',
+                        bottom: '2rem',
+                        left: '50%',
+                        transform: 'translateX(-50%)'                        
+                    }} />        
             </div>
         );
     }

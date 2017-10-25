@@ -1,18 +1,18 @@
 import React from 'react';
 import styles from './index.css';
-import cls from 'classnames'
+import types from 'prop-types';
 
-const NavbarWrapper = ({bgColor, children, className}) => {
-
-    const wrapperCls = cls(className, styles['navbar']);
+const NavbarWrapper = ({children, style}) => {
 
     return (
-        <div className={wrapperCls} style={{
-            backgroundColor: bgColor || '#fff'
-        }}>
+        <div className={styles['navbar']} style={style}>
         {children}
         </div>
     );
 };
 
 export { NavbarWrapper };
+
+NavbarWrapper.propTypes = {
+    style: types.object
+};

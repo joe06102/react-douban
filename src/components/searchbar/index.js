@@ -42,6 +42,6 @@ export { SearchBar }
 
 SearchBar.propTypes = {
     search: types.func.isRequired,
-    styles: types.object
+    style: types.object
 }
 
