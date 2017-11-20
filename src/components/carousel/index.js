@@ -75,7 +75,7 @@ class Carousel extends Component {
                         const curVisible = index === this.state.curIndex ? 'visible' : 'collapse';
 
                         return (
-                            <Motion style={{opacity: spring(curOpacity, { stiffness: 100, damping: 20 })}}>
+                            <Motion defaultStyle={{opacity: 0}} style={{opacity: spring(curOpacity, { stiffness: 100, damping: 20 })}}>
                             {
                                 values => {
 

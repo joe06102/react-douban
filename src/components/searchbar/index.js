@@ -44,4 +44,3 @@ SearchBar.propTypes = {
     search: types.func.isRequired,
     style: types.object
 }
-
