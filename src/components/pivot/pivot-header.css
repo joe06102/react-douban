@@ -1,6 +1,8 @@
 .header-list {
+    display: inline-block;
+    vertical-align: top;
     font-size: 0;
-    border: 1px solid #999;
+    border: 1px solid #ccc;
 }
 .title-wrap {
     display: inline-block;
@@ -9,16 +11,17 @@
     width: 80px;
     height: 28px;
     line-height: 28px;
-    border-width: 4px 1px;
+    border-width: 0;
     border-style: solid;
-    border-color: transparent;
+    border-color: transparent transparent transparent #ccc;
     color: #333;
 }
 .title-wrap:hover{
     cursor: pointer;
 }
 .title-wrap-selected {
-    border-color: transparent #396 #396 #396;
+    border-bottom-width: 4px;
+    border-bottom-color: #396;
 }
 .title {
     margin: 0;
