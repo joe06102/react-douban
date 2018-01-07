@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { PivotHeader } from './pivot-header';
 import { PivotItem } from './pivot-item';
-import style from './index.css';
+import styles from './index.css';
 
 export class Pivot extends Component{
 
@@ -23,9 +23,9 @@ export class Pivot extends Component{
         const titles = React.Children.map(children, el => el.props.title);
 
         return (
-            <div style={style}>
+            <div style={styles}>
                 <PivotHeader titles={titles} curPivotIndex={this.state.curPivot} changeToPivotOfIndex={this.changePivotToIndex}/>
-                <div className={style['pivotitem-container']}>
+                <div className={styles['pivotitem-container']}>
                 {
                     React.Children.map(children, (child, index) => {
                         var el = React.cloneElement(child, { style: { ...child.props.style, display: index === this.state.curPivot ? 'block' : 'none' } });
