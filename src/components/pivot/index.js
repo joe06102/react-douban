@@ -23,7 +23,7 @@ export class Pivot extends Component{
         const titles = React.Children.map(children, el => el.props.title);
 
         return (
-            <div style={styles}>
+            <div style={style}>
                 <PivotHeader titles={titles} curPivotIndex={this.state.curPivot} changeToPivotOfIndex={this.changePivotToIndex}/>
                 <div className={styles['pivotitem-container']}>
                 {
