@@ -1,0 +1,24 @@
+.wrap {
+    display: inline-block;
+    vertical-align: top;
+    margin: 8px;
+}
+
+.cover {
+    width: 100%;
+    margin: 0;
+}
+
+.title {
+    font-size: 13px;
+    margin: 0;
+    padding: 4px;
+    text-align: center;
+    line-height: 22px;
+    color: #0691d2;
+}
+
+.title > strong {
+    color: #ee9f4d;
+    padding: 0 8px;
+}
