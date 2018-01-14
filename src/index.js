@@ -4,6 +4,9 @@ import { NavbarDouBan, Carousel, Pivot, PivotItem } from './components';
 import styles from './index.css';
 import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom';
 import { MoviePage, MusicPage, BookPage } from './pages';
+import thunk from 'redux-thunk';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 
 ReactDOM.render(
     <Router>
