@@ -1,16 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class BookPage extends Component{
-
-    constructor(){
-        super();
-    }
-
-    render(){
-        return (
-            <div>
-                this is book page.
-            </div>
-        );
-    }
+export const BookPage = () => {
+    return (
+        <div>
+            this is book page.
+        </div>
+    )
 }

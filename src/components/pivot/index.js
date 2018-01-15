@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { PivotHeader } from './pivot-header';
-import { PivotItem } from './pivot-item';
 import styles from './index.css';
 
 export class Pivot extends Component{

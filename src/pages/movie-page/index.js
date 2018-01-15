@@ -1,16 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-export class MoviePage extends Component{
-
-    constructor(){
-        super();
-    }
-
-    render(){
-        return (
-            <div>
-                this is movie page.
-            </div>
-        );
-    }
+export const MoviePage = () => {
+    return (
+        <div>
+            this is movie page.
+        </div>
+    )    
 }

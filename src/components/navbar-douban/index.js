@@ -7,8 +7,6 @@ import fa from 'font-awesome/css/font-awesome.css';
 import cls from 'classnames';
 import { Link } from 'react-router-dom';
 
-const win = window;
-
 const NavbarDouBan = ({style}) => {
 
     const burgerCls = cls(fa['fa'], fa['fa-bars'], fa['fa-2x'], styles['burger-menu']);
