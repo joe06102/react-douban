@@ -19,12 +19,11 @@ class Carousel extends Component {
     initAutomation(){
         
         const { autoplay, interval, reverse, children } = this.props;
-        const count = React.Children.count(children);
         
         if(autoplay){
             this.timer = setInterval(() => {
 
-                if(this.state.curIndex >= count - 1){
+                if(this.state.curIndex >= this.count - 1){
                     if(reverse){
                         this.step = -1;
                     }
@@ -64,12 +63,14 @@ class Carousel extends Component {
 
     render(){
 
-        const { style } = this.props;
+        const { style, children } = this.props;
+
+        this.count = React.Children.count(children)
 
         return (
             <div className={styles['carousel-wrapper']} style={style}>
                 {
-                    React.Children.map(this.props.children, (el, index) => {
+                    React.Children.map(children, (el, index) => {
 
                         const curOpacity = index === this.state.curIndex ? 1 : 0;
                         const curVisible = index === this.state.curIndex ? 'visible' : 'collapse';
