@@ -8,7 +8,7 @@ declare namespace Tables {
         aka_en: string[]
         born_place: string
         works: string[]
-        avatars: string[]
+        avatar: string
     }
 
     export class Movie {
@@ -24,12 +24,22 @@ declare namespace Tables {
         casts: string[]
         share_url: string
         rating: number
-        covers: string[]
+        cover: string
         rating_count: number
         comment_count: number
         collect_count: number
         review_count: number
         wish_count: number
+    }
+
+    export class City {
+        id: string
+        name: string
+        name_full: string
+        location: {
+            lat: number
+            lng: number
+        }
     }
 
 }

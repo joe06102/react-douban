@@ -1,42 +1,47 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { NavbarDouBan, Carousel, Pivot, PivotItem } from './components';
-import styles from './index.css';
-import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom';
-import { MoviePage, MusicPage, BookPage } from './pages';
-import thunk from 'redux-thunk';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { Provider } from 'react-redux';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom'
+import thunk from 'redux-thunk'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
+import { Provider } from 'react-redux'
+import { MoviePage, MusicPage, BookPage } from './pages'
+import { NavbarDouBan } from './components'
+import { celebrityReducer, movieReducer, citiesReducer } from './reducers'
+import { getMoviesInTheater } from './requests/movie-request'
+import styles from './index.css'
+
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+const store = createStore(combineReducers({
+    movies: movieReducer,
+    celebrities: celebrityReducer,
+    cities: citiesReducer
+}), composeEnhancer(applyMiddleware(thunk)))
+
+//store.dispatch(getMoviesInTheater)
+
+// <div style={{ width: '100%', height: '30rem', backgroundColor: '#c33' }} onClick={e => {console.log(e.target.textContent)}}>
+// <Avatar src='https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p50940.jpg' alt='lgjt' style={{ width: '90px', height: '128px' }}/>
+// </div>
+// <div style={{ width: '100%', height: '30rem', backgroundColor: '#3c9' }} onClick={e => {console.log(e.target.textContent)}}>
+// <Avatar src='https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1449935218.59.jpg' alt='hx' style={{ width: '90px', height: '128px' }}/>
+// </div>
+// <div style={{ width: '100%', height: '30rem', backgroundColor: '#3cc' }} onClick={e => {console.log(e.target.textContent)}}>
+// <Avatar src='https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1510497293.38.jpg' alt='zyq' style={{ width: '90px', height: '128px' }}/>                                
+// </div>
 
 ReactDOM.render(
-    <Router>
-        <div>
-            <NavbarDouBan />    
-            <Switch>
-                <Route exact path='/' render={() => {
-                    return (
-                        <div>
-                            <Carousel autoplay={true} reverse={true} interval={3000} style={{
-                                width: '100%',
-                                height: '30rem'
-                            }}>
-                                <div style={{ width: '100%', height: '30rem', backgroundColor: '#c33' }} onClick={e => {console.log(e.target.textContent)}}>1</div>
-                                <div style={{ width: '100%', height: '30rem', backgroundColor: '#3c9' }} onClick={e => {console.log(e.target.textContent)}}>2</div>
-                                <div style={{ width: '100%', height: '30rem', backgroundColor: '#3cc' }} onClick={e => {console.log(e.target.textContent)}}>3</div>
-                            </Carousel>
-                            <Pivot>
-                                <PivotItem title={'pivot-1'}><div style={{ height: 200, backgroundColor: '#c33' }}>this is pivot-item-1</div></PivotItem>
-                                <PivotItem title={'pivot-2'}><div style={{ height: 200, backgroundColor: '#3c9' }}>this is pivot-item-2</div></PivotItem>
-                                <PivotItem title={'pivot-3'}><div style={{ height: 200, backgroundColor: '#3cc' }}>this is pivot-item-3</div></PivotItem>
-                            </Pivot>                        
-                        </div>
-                    );
-                }}/>                    
-                <Route path='/movie' component={MoviePage}/>
-                <Route path='/music' component={MusicPage}/>
-                <Route path='/book' component={BookPage}/>
-            </Switch>        
-        </div>
-    </Router>,
+    <Provider store={store}>
+        <Router>
+            <div>
+                <NavbarDouBan />    
+                <Switch>
+                    <Route exact path='/' component={MoviePage}></Route>                    
+                    <Route path='/movie' component={MoviePage}/>
+                    <Route path='/music' component={MusicPage}/>
+                    <Route path='/book' component={BookPage}/>
+                </Switch>        
+            </div>
+        </Router>    
+    </Provider>,
     document.querySelector('#root')
 );

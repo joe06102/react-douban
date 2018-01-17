@@ -1,6 +1,8 @@
 import { Url } from '../utils/url';
 import { Logger } from '../utils/logger';
 
+const apiKey = '0f0a25bba45818dd2d1e7132ed084a97'
+
 export class FetchFactory {
 
     constructor(path){
@@ -18,7 +20,7 @@ export class FetchFactory {
                     reject(error);
                 }
         
-                const path = `/${Url.resolve(this.path, resource)}/${id}`;  
+                const path = `/${Url.resolve(this.path, resource)}/${id}?apikey=${apiKey}`;  
     
                 fetch(path).then(res => {
                     if(res.status === 200){
@@ -40,7 +42,7 @@ export class FetchFactory {
                 reject = reject || Logger.error;
                 
                 const queryString = Url.spliceQueryString(qs);
-                const path = `/${Url.resolve(this.path, resource)}?${queryString}`;  
+                const path = `/${Url.resolve(this.path, resource)}?${queryString}&apikey=${apiKey}`;  
     
                 fetch(path).then(res => {
                     if(res.status === 200){
