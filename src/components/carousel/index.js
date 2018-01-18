@@ -126,7 +126,7 @@ class Carousel extends Component {
                     jumpTo={this.jumpTo} 
                     style={{
                         position: 'absolute',
-                        bottom: '2rem',
+                        bottom: '10px',
                         left: '50%',
                         transform: 'translateX(-50%)'                        
                     }} />        

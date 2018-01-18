@@ -24,6 +24,7 @@ ul, li{
     box-shadow: 0 1px 4px #ccc;
     counter-increment: indicators;    
     transition: all .1s ease-in-out;
+    font-size: 11px;
 }
 .indicator:hover{
     cursor: pointer;

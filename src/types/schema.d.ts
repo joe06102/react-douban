@@ -9,6 +9,7 @@ declare namespace Tables {
         born_place: string
         works: string[]
         avatar: string
+        url: string
     }
 
     export class Movie {

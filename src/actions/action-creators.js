@@ -21,6 +21,13 @@ const addCelebrity = (celebrity) => {
     }
 }
 
+const addCelebrities = (celebrities) => {
+    return {
+        type: types.ADD_CELEBRITIES,
+        payload: celebrities
+    }
+}
+
 const addCities = (cities) => {
     return {
         type: types.ADD_CITIES,
@@ -60,6 +67,7 @@ export {
     addMovie,
     addMovies,
     addCelebrity,
+    addCelebrities,
     addCities,
     setIsFetching,
     setMovieFetchStatus,

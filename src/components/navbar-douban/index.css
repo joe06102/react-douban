@@ -13,11 +13,11 @@ ul, li{
     vertical-align: top;
 }
 .header-col{
-    margin: 0 1.6rem;
+    margin: 0 16px;
 }
 .body-col{
-    width: calc(100% - 15rem);
-    margin: 0 1.6rem;
+    width: calc(100% - 150px);
+    margin: 0 16;
 }
 
 /* modules */
@@ -25,12 +25,12 @@ ul, li{
     font-size: 0;
 }
 .burger-wrapper{
-    width: 5rem;
-    height: 5rem;
+    width: 50px;
+    height: 50px;
     display: inline-block;
     vertical-align: top;
     position: relative;
-    font-size: 1rem;
+    font-size: 10px;
 }
 .burger-menu{
     color: #fff;
@@ -38,7 +38,7 @@ ul, li{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2rem;
+    font-size: 20px;
 }
 .title-douban{
     color: #fff;
@@ -46,23 +46,23 @@ ul, li{
     vertical-align: top;
     margin: 0;
     height: 100%;
-    line-height: 5rem;
-    font-size: 1.6rem;
+    line-height: 50px;
+    font-size: 16px;
 }
 .menu{
     display: inline-block;
     vertical-align: top;
-    width: 30rem;
+    width: 300px;
     height: 100%;
-    padding: 0 1.6rem;
+    padding: 0 16px;
     font-size: 0;
 }
 .menu-item{
-    width: calc((100% - .8rem * 2 * 3) / 3);
-    height: 5rem;
+    width: calc((100% - 8px * 2 * 3) / 3);
+    height: 50px;
     display: inline-block;
     vertical-align: top;
-    font-size: 1.4rem;
+    font-size: 14;
 }
 .menu-item:hover{
     background-color: rgb(4, 126, 65);
@@ -70,12 +70,12 @@ ul, li{
 .menu-item-link{
     width: 100%;
     height: 100%;
-    line-height: 5rem;
+    line-height: 50px;
     text-align: center;
     display: inline-block;
     vertical-align: top;
     text-decoration: none;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 12px;
     background-color: transparent;
 }
