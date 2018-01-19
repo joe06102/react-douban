@@ -26,7 +26,7 @@ class Page extends Component {
 
         return (
             <div>
-                <Carousel autoplay={false} reverse={true} interval={3000} style={{
+                <Carousel autoplay={true} reverse={true} interval={3000} style={{
                     width: '80%',
                     height: '320px'
                 }}>
