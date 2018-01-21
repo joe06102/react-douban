@@ -1,11 +1,37 @@
-.wrap {
-    overflow: hidden;
-    left: 0;
-    right: 0;
-    margin: 0;
-    padding: 0 200px;
-    height: 320px;
-    text-align: left;
+@media screen and (max-width: 1600px) {
+    .wrap {
+        overflow: hidden;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        height: 320px;
+        text-align: left;
+    }    
+}
+
+@media screen and (max-width: 1920px) and (min-width: 1600px) {
+    .wrap {
+        overflow: hidden;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0 100px;
+        height: 320px;
+        text-align: left;
+    }    
+}
+
+@media screen and (min-width: 1920px) {
+    .wrap {
+        overflow: hidden;
+        left: 0;
+        right: 0;
+        margin: 0;
+        padding: 0 200px;
+        height: 320px;
+        text-align: left;
+    }
 }
 
 .glass {
