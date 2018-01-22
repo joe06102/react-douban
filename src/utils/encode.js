@@ -109,9 +109,8 @@ export class Encode {
         return Encode.pad(num, len, placeholder, false);
     }
 
-    static getImgBase64ByUrl(src) {
-
-        return fetch(src).then(res => {
+    static getImgBase64ByUrl(proxy, options) {
+        return fetch(proxy, options).then(res => {
             res.arrayBuffer().then(buf => {
     
                 let bufStr = ''
