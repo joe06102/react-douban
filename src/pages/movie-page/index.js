@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { NavbarDouBan, Carousel, Pivot, PivotItem, Avatar, Cover, Banner } from '../../components'
 import { connect } from 'react-redux'
-import { getMoviesInTheater } from '../../requests/movie-request'
+import * as types from '../../actions/action-types'
 
 class Page extends Component {
     
@@ -11,10 +11,10 @@ class Page extends Component {
 
     componentWillMount() {
 
-        const { dispatch, currentCity } = this.props
+        const { dispatch } = this.props
 
         if(typeof dispatch === 'function') {
-            dispatch(getMoviesInTheater(currentCity))
+            dispatch({ type: types.ADD_MOVIES_ASYNC })
         } else {
             console.log(`init getMOviesInTheater failed, dispatch not availabel`)
         }
@@ -22,11 +22,11 @@ class Page extends Component {
 
     render() {
 
-        const { movies, celebrities } = this.props
+        const { movies } = this.props
 
         return (
             <div>
-                <Carousel autoplay={true} reverse={true} interval={3000} style={{
+                <Carousel autoplay={false} reverse={true} interval={3000} style={{
                     width: '80%',
                     height: '320px'
                 }}>
@@ -34,20 +34,8 @@ class Page extends Component {
                     Object.keys(movies).map(k => {
 
                         const m = movies[k]
-                        const d = m.directors.map(k => {
-                            if(!celebrities[k]) {
-                                return {}
-                            }
-                            
-                            return celebrities[k]
-                        })
-                        const c = m.casts.map(k => {
-                            if(!celebrities[k]) {
-                                return {}
-                            }
-                            
-                            return celebrities[k]
-                        })
+                        const d = m.directors
+                        const c = m.casts
 
                         return (<Banner key={k} movie={m} directors={d} casts={c}/>)
                     })

@@ -35,42 +35,10 @@ const addCities = (cities) => {
     }
 }
 
-const setIsFetching = (isFetching) => {
-    return {
-        type: types.SET_IS_FETCHING,
-        payload: isFetching
-    }
-}
-
-const setMovieFetchStatus = (fetchStatus) => {
-    return {
-        type: types.SET_MOVIE_FETCH_STATUS,
-        payload: fetchStatus
-    }
-}
-
-const setCelebrityFetchStatus = (fetchStatus) => {
-    return {
-        type: types.SET_CELEBRITY_FETCH_STATUS,
-        payload: fetchStatus
-    }
-}
-
-const setCitiesFetchStatus = (fetchStatus) => {
-    return {
-        type: types.SET_CITIES_FETCH_STATUS,
-        payload: fetchStatus
-    }
-}
-
 export {
     addMovie,
     addMovies,
     addCelebrity,
     addCelebrities,
     addCities,
-    setIsFetching,
-    setMovieFetchStatus,
-    setCelebrityFetchStatus,
-    setCitiesFetchStatus,
 }

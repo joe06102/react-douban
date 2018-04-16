@@ -3,12 +3,12 @@ import styles from './index.css'
 import { RatingBar } from '../rating-bar'
 import { Avatar } from '../avatar'
 
-export const Banner = ({ movie, directors, casts, style, }) => {
+export const Banner = ({ key, movie, directors, casts, style, }) => {
     return (
-        <div className={styles.wrap} style={style}>
-            <div className={styles.glass} style={{ backgroundImage: `url(${movie.cover})` }}></div>
+        <div key={key} className={styles.wrap} style={style}>
+            <div className={styles.glass} style={{ backgroundImage: `url(${movie.images.large})` }}></div>
             <div className={styles.col}>
-                <img className={styles.cover} alt={movie.title} src={movie.cover} />
+                <img className={styles.cover} alt={movie.title} src={movie.images.large} />
             </div>
             <div className={`${styles.col} ${styles['paper-wrap']}`}>
                 <div className={styles.paper}>
@@ -27,7 +27,7 @@ export const Banner = ({ movie, directors, casts, style, }) => {
                             <span>{movie.year}</span>
                         </p>
                         <p style={{ margin: 0 }}><strong>豆瓣评分</strong></p>
-                        <RatingBar rating={movie.rating} />      
+                        <RatingBar rating={movie.rating.average} />      
                     </div>
                     <div className={styles['paper-col']}>
                         <div>
@@ -41,7 +41,7 @@ export const Banner = ({ movie, directors, casts, style, }) => {
                             <div>
                             {
                                 Array.isArray(casts) && casts.map(d => {
-                                    return <Avatar key={d.id} src={d.avatar} alt={d.name} style={{ width: 90, height: 128, margin: 8 }}/>
+                                    return <Avatar key={d.id} src={d.avatars.large} alt={d.name} style={{ width: 90, height: 128, margin: 8 }}/>
                                 })
                             }
                             </div>

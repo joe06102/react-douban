@@ -10,56 +10,7 @@ const getMoviesInTheater = (city = '杭州', count = 10) => {
         count: count
     }
 
-    return (dispatch, getState) => {
-
-        service.fetchMoviesInTheater(qs).then(res => {
-        
-            const data = res.subjects || []
-            let celebs = []
-            const movies = data.map(m => {
-
-                const directors = (m.directors || []).map(d => {
-                    return {
-                        id: d.id,
-                        name: d.name,
-                        avatar: d.avatars.large,
-                        url: d.alt
-                    }
-                })
-
-                const casts = (m.casts || []).map(c => {
-                    return {
-                        id: c.id,
-                        name: c.name,
-                        avatar: c.avatars.large                        
-                    }
-                })
-
-                celebs = celebs.concat(directors, casts)
-
-                return {
-                    id: m.id,
-                    title: m.title,
-                    title_origin: m.original_title,
-                    year: m.year,
-                    genres: m.genres,
-                    directors: directors.map(d => d.id),
-                    casts: casts.map(c => c.id),
-                    rating: m.rating.average,
-                    cover: m.images.large,
-                    collect_count: m.collect_count
-                }
-            })
-    
-            if(typeof dispatch === 'function') {
-                dispatch(actions.addMovies(movies))
-                dispatch(actions.addCelebrities(celebs))
-            }
-            else {
-                console.log(`getMoviesInTheater failed, dispatch is not a function`)
-            }                 
-        })
-    }
+    return service.fetchMoviesInTheater(qs)
 }
 
 export { getMoviesInTheater }
