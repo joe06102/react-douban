@@ -42,6 +42,6 @@ const currentCity = (state = '杭州', action) => {
     return state
 }
 
-export { MovieReducer } from './movie'
+export { MovieReducer, InTheaterReducer, ComingSoonReducer } from './movie'
 export { LoadingReducer } from './loading'
 export { celebrity as celebrityReducer, cities as citiesReducer, currentCity as currentCityReducer };

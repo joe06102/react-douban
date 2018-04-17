@@ -14,6 +14,8 @@ const sagaMiddleware = createSagaMiddleware()
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 const store = createStore(combineReducers({
     movies: reducers.MovieReducer,
+    in_theater: reducers.InTheaterReducer,
+    coming_soon: reducers.ComingSoonReducer,
     celebrities: reducers.celebrityReducer,
     cities: reducers.citiesReducer,
     currentCity: reducers.currentCityReducer,
