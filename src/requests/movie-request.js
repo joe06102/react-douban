@@ -1,4 +1,3 @@
-import * as actions from '../actions/action-creators'
 import { MovieService } from '../services/movie-service'
 
 const service = new MovieService()
@@ -13,7 +12,17 @@ const getMoviesInTheater = (city = '杭州', count = 10) => {
     return service.fetchMoviesInTheater(qs)
 }
 
-export { getMoviesInTheater }
+const getMoviesComingSoon = (city = '杭州', count = 10) => {
+    
+    const qs = {
+        city: city,
+        count: count
+    }
+
+    return service.fetchMoviesComingSoon(qs)
+}
+
+export { getMoviesInTheater, getMoviesComingSoon }
 
 
 // {
