@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavbarDouBan, Carousel, Pivot, PivotItem, Avatar, Cover, Banner } from '../../components'
+import { NavbarDouBan, Carousel, Pivot, PivotItem, Avatar, Cover, Banner, CarouselWithLoading } from '../../components'
 import { connect } from 'react-redux'
 import * as types from '../../actions/action-types'
 
@@ -22,13 +22,15 @@ class Page extends Component {
 
     render() {
 
-        const { movies } = this.props
+        const { movies, loading } = this.props
+        const { bannerLoading } = loading
 
         return (
             <div>
-                <Carousel autoplay={false} reverse={true} interval={3000} style={{
+                <CarouselWithLoading loading={bannerLoading} autoplay={false} reverse={true} interval={3000} style={{
                     width: '80%',
-                    height: '320px'
+                    height: '320px',
+                    margin: '0 auto',
                 }}>
                 {
                     Object.keys(movies).map(k => {
@@ -40,7 +42,7 @@ class Page extends Component {
                         return (<Banner key={k} movie={m} directors={d} casts={c}/>)
                     })
                 }
-                </Carousel>
+                </CarouselWithLoading>
                 <Pivot style={{ width: '80%', margin: '0 auto' }}>
                     <PivotItem key={1} title={'pivot-1'}>
                         <div style={{ height: 400, backgroundColor: '#fff' }}>
@@ -61,12 +63,13 @@ class Page extends Component {
 
 const mapState = state => {
 
-    const { movies, celebrities, currentCity } = state
+    const { movies, celebrities, currentCity, loading } = state
 
     return {
         movies,
         celebrities,
         currentCity,
+        loading
     }
 }
 
