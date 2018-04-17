@@ -16,7 +16,8 @@ const store = createStore(combineReducers({
     movies: reducers.MovieReducer,
     celebrities: reducers.celebrityReducer,
     cities: reducers.citiesReducer,
-    currentCity: reducers.currentCityReducer
+    currentCity: reducers.currentCityReducer,
+    loading: reducers.LoadingReducer,
 }), composeEnhancer(applyMiddleware(sagaMiddleware)))
 
 sagaMiddleware.run(rootSaga)

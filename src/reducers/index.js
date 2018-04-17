@@ -1,4 +1,3 @@
-import { MovieReducer } from './movie'
 import * as types from '../actions/action-types'
 
 const celebrity = (state = {}, action) => {
@@ -43,4 +42,6 @@ const currentCity = (state = '杭州', action) => {
     return state
 }
 
-export { celebrity as celebrityReducer, MovieReducer, cities as citiesReducer, currentCity as currentCityReducer };
+export { MovieReducer } from './movie'
+export { LoadingReducer } from './loading'
+export { celebrity as celebrityReducer, cities as citiesReducer, currentCity as currentCityReducer };
