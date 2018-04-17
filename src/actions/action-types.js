@@ -1,5 +1,7 @@
-const ADD_MOVIE = 'add_mm'
-const ADD_MOVIE_ASYNC = 'add_mv_async'
+export const ADD_MOVIE_IN_THEATER = 'add_mv_in_theater'
+export const ADD_MOVIE_IN_THEATER_ASYNC = 'add_mv_in_theater_async'
+export const ADD_MOVIE_COMING_SOON = 'add_mv_coming_soon'
+export const ADD_MOVIE_COMING_SOON_ASYNC = 'add_mv_coming_soon_async'
 const ADD_MOVIES = 'add_mvs'
 const ADD_MOVIES_ASYNC = 'add_mvs_async'
 const ADD_CELEBRITY = 'add_celeb'
@@ -12,8 +14,6 @@ const FETCH_MV_IN_THEATER_DONE = 'fetch_mv_in_theater_done'
 const SET_CURRENT_CITY = 'SET_CURRENT_CITY'
 
 export { 
-    ADD_MOVIE,
-    ADD_MOVIE_ASYNC,
     ADD_MOVIES, 
     ADD_MOVIES_ASYNC,
     ADD_CELEBRITY,
