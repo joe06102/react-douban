@@ -1,0 +1,8 @@
+.wrapper {
+    max-width: 800px;
+    max-height: 480px;
+    width: 60%;
+    margin: 32% auto;
+    background-color: #fff;
+    box-shadow: 0 0 1px 4px #ccc;
+}

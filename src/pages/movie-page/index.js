@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { NavbarDouBan, Carousel, Pivot, PivotItem, Avatar, Cover, Banner, CarouselWithLoading } from '../../components'
+import { NavbarDouBan, Carousel, Pivot, PivotItem, Avatar, Cover, Banner, CarouselWithLoading, MovieCardContainer } from '../../components'
 import { connect } from 'react-redux'
+import { Route } from 'react-router-dom'
 import * as types from '../../actions/action-types'
 
 class Page extends Component {
@@ -61,7 +62,12 @@ class Page extends Component {
                     </PivotItem>
                     <PivotItem key={2} title={'pivot-2'}><div style={{ height: 200, backgroundColor: '#3c9' }}>this is pivot-item-2</div></PivotItem>
                     <PivotItem key={3} title={'pivot-3'}><div style={{ height: 200, backgroundColor: '#3cc' }}>this is pivot-item-3</div></PivotItem>
-                </Pivot>                     
+                </Pivot>
+                <Route path='/movie/:id' exact render={props => {
+                    const { id } = props.match.params
+                    console.log('xxxxxxxxxx')
+                    return connect({ id })(MovieCardContainer)
+                }} />          
             </div>             
         )        
     } 
