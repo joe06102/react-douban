@@ -1,4 +1,4 @@
-import { bannerSaga, pivotSaga } from './banner'
+import { bannerSaga, pivotSaga } from './movie'
 import * as types from '../actions/action-types'
 import { takeEvery, call, fork, take } from 'redux-saga/effects';
 
