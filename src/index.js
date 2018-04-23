@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route,  Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import createSagaMiddleware from 'redux-saga'
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import { Provider } from 'react-redux'
+import { MovieCardContainer } from './components/movie-card'
 import { MoviePage, MusicPage, BookPage } from './pages'
 import { NavbarDouBan } from './components'
 import * as reducers from './reducers'
@@ -18,7 +19,7 @@ const store = createStore(combineReducers({
     coming_soon: reducers.ComingSoonReducer,
     celebrities: reducers.celebrityReducer,
     cities: reducers.citiesReducer,
-    currentCity: reducers.currentCityReducer,
+    current: reducers.CurrentReducer,
     loading: reducers.LoadingReducer,
 }), composeEnhancer(applyMiddleware(sagaMiddleware)))
 
@@ -28,15 +29,13 @@ ReactDOM.render(
     <Provider store={store}>
         <Router>
             <div>
-                <NavbarDouBan />    
-                <Switch>
-                    <Route exact path='/' component={MoviePage}></Route>                    
-                    <Route path='/movie' component={MoviePage}/>
-                    <Route path='/music' component={MusicPage}/>
-                    <Route path='/book' component={BookPage}/>
-                </Switch>        
+                <NavbarDouBan />
+                <Route path='/' exact component={MoviePage} />
+                <Route path='/movie' component={MoviePage}/>
+                <Route path='/music' component={MusicPage} />
+                <Route path='/book' component={BookPage} />                
             </div>
-        </Router>    
+        </Router>
     </Provider>,
     document.querySelector('#root')
-);
+)

@@ -24,8 +24,9 @@ class Page extends Component {
 
     render() {
 
-        const { mvs_in_theater, mvs_coming_soon, loading } = this.props
+        const { mvs_in_theater, mvs_coming_soon, loading, match } = this.props
         const { bannerLoading } = loading
+        const { url } = match || {}
 
         return (
             <div>
@@ -63,11 +64,7 @@ class Page extends Component {
                     <PivotItem key={2} title={'pivot-2'}><div style={{ height: 200, backgroundColor: '#3c9' }}>this is pivot-item-2</div></PivotItem>
                     <PivotItem key={3} title={'pivot-3'}><div style={{ height: 200, backgroundColor: '#3cc' }}>this is pivot-item-3</div></PivotItem>
                 </Pivot>
-                <Route path='/movie/:id' exact render={props => {
-                    const { id } = props.match.params
-                    console.log('xxxxxxxxxx')
-                    return connect({ id })(MovieCardContainer)
-                }} />          
+                <Route path={`${url}/:id`} component={MovieCardContainer} />    
             </div>             
         )        
     } 

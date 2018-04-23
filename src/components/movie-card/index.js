@@ -5,18 +5,7 @@ import { MovieCard } from './card'
 import styles from './index.css'
 import * as types from '../../actions/action-types'
 
-const mapStateSelector = id => state => {
-    
-    const movies = state.movies
-    const movie = movies.filter(m => m.id === id)[0] || {}
-
-    return {
-        movie
-    }
-}
-
-
-class MovieCardContainer extends React.Component {
+class MovieCardWrapper extends React.Component {
 
     constructor(props) {
         super(props)
@@ -24,24 +13,39 @@ class MovieCardContainer extends React.Component {
 
     componentWillMount() {
 
-        const { id, dispatch } = this.props
+        const { dispatch, match } = this.props
+        const { params } = match || {}
+        const { id } = params || {}
 
-        console.log(id)
-
-        // dispatch({
-        //     type: types.ADD_MOVIE_ASYNC,
-        //     payload: id
-        // })
-    }
-
-    render() {
-        const { id,dispatch } = this.props
         dispatch({
             type: types.ADD_MOVIE_ASYNC,
             payload: id
         })
-        return connect(mapStateSelector(id))(MovieCard)
+        dispatch({
+            type: types.SET_CURRENT_MOVIE,
+            payload: {
+                id
+            }
+        })
+    }
+
+    render() {
+        const { movie } = this.props
+
+        return (<MovieCard movie={movie}/>)
     }
 }
 
+const mapState = state => {
+    
+    const curMovieId = state.current.movie
+    const movies = Object.keys(state.movies)
+    const movie = movies.filter(id => id === curMovieId)[0] || {}
+
+    return {
+        movie
+    }
+}
+
+const MovieCardContainer = connect(mapState)(MovieCardWrapper)
 export { MovieCard, MovieCardContainer }

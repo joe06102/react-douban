@@ -4,8 +4,10 @@ import styles from './index.css'
 
 const MovieCard = ({ movie, style }) => {
     return (
-        <div style={styles.wrapper}>
-            <p>{ movie.summary }</p>
+        <div className={styles.wrapper}>
+            <div className={styles.container}>
+                <p>{ movie.summary }</p>
+            </div>
         </div>
     )
 }

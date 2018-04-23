@@ -28,20 +28,7 @@ const cities = (state = {}, action) => {
     return state;
 }
 
-const currentCity = (state = '杭州', action) => {
-
-    switch(action.type) {
-        
-        case types.SET_CURRENT_CITY: {
-            state = action.payload
-            break
-        }
-
-    }
-
-    return state
-}
-
 export { MovieReducer, InTheaterReducer, ComingSoonReducer } from './movie'
+export { CurrentReducer } from './current'
 export { LoadingReducer } from './loading'
-export { celebrity as celebrityReducer, cities as citiesReducer, currentCity as currentCityReducer };
+export { celebrity as celebrityReducer, cities as citiesReducer };

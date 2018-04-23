@@ -1,8 +1,22 @@
 .wrapper {
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 255, 255, .8);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+}
+.container {
     max-width: 800px;
     max-height: 480px;
-    width: 60%;
-    margin: 32% auto;
+    margin: auto;
     background-color: #fff;
-    box-shadow: 0 0 1px 4px #ccc;
+    box-shadow: 0 0 8px 1px #ccc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
