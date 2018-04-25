@@ -19,7 +19,9 @@ class MovieCardWrapper extends React.Component {
 
         dispatch({
             type: types.ADD_MOVIE_ASYNC,
-            payload: id
+            payload: {
+                id
+            }
         })
         dispatch({
             type: types.SET_CURRENT_MOVIE,
@@ -39,8 +41,7 @@ class MovieCardWrapper extends React.Component {
 const mapState = state => {
     
     const curMovieId = state.current.movie
-    const movies = Object.keys(state.movies)
-    const movie = movies.filter(id => id === curMovieId)[0] || {}
+    const movie = state.movies[curMovieId] || {}
 
     return {
         movie

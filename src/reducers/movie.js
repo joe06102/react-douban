@@ -1,4 +1,5 @@
 import * as types from '../actions/action-types'
+import _ from 'lodash'
 
 const movie = (state = {}, action) => {
 
@@ -18,6 +19,17 @@ const movie = (state = {}, action) => {
                 }, {})
 
                 state = { ...state, ...data }
+            }
+
+            return state
+        }
+
+        case types.ADD_MOVIE: {
+
+            const { payload } = action
+
+            if(!_.isEmpty(payload)) {
+                state = { ...state, [payload.id]: payload }
             }
 
             return state

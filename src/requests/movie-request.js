@@ -22,26 +22,8 @@ const getMoviesComingSoon = (city = '杭州', count = 10) => {
     return service.fetchMoviesComingSoon(qs)
 }
 
-export { getMoviesInTheater, getMoviesComingSoon }
+const getMovieDetails = id => {
+    return service.fetchMovieById(id)
+}
 
-
-// {
-//     id: m.id,
-//     title: m.title,
-//     title_origin: m.original_title,
-//     aka: m.aka || '',
-//     year: m.year || '',
-//     genres: m.genres || [],
-//     summary: m.summary || '',
-//     countries: m.countries,
-//     directors: m.directors && m.directors.map(d => d.id) || [],
-//     casts: m.casts && m.casts.map(c => c.id) || [],
-//     share_url: m.share_url || '',
-//     rating: m.rating.average,
-//     cover: m.images.large,
-//     rating_count: m.ratings_count,
-//     comment_count: m.comments_count,
-//     collect_count: m.collect_count,
-//     review_count: m.reviews_count,
-//     wish_count: m.wish_count,
-// }
+export { getMoviesInTheater, getMoviesComingSoon, getMovieDetails }

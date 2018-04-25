@@ -14,12 +14,8 @@ class Page extends Component {
 
         const { dispatch } = this.props
 
-        if(typeof dispatch === 'function') {
-            dispatch({ type: types.ADD_MOVIE_IN_THEATER_ASYNC })
-            dispatch({ type: types.ADD_MOVIE_COMING_SOON_ASYNC })            
-        } else {
-            console.log(`init getMOviesInTheater failed, dispatch not availabel`)
-        }
+        dispatch({ type: types.ADD_MOVIE_IN_THEATER_ASYNC })
+        dispatch({ type: types.ADD_MOVIE_COMING_SOON_ASYNC })
     }
 
     render() {

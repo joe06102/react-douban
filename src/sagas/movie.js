@@ -1,9 +1,10 @@
 import { delay } from 'redux-saga'
-import { call, put } from 'redux-saga/effects'
+import { call, put, take, fork } from 'redux-saga/effects'
 import * as types from '../actions/action-types'
 import { MOVIES_IN_THEATER, MOVIES_COMING_SOON } from './constants'
-import { getMoviesInTheater, getMoviesComingSoon } from '../requests/movie-request'
+import { getMoviesInTheater, getMoviesComingSoon, getMovieDetails } from '../requests/movie-request'
 
+//#region -- workers
 export function* bannerSaga() {
 
     yield put({ type: types.FETCHING_MV_IN_THEATER })
@@ -18,7 +19,7 @@ export function* bannerSaga() {
     }
 
     if(moviesMap) {
-        yield delay(2000)
+        //yield delay(2000)
         yield put({
             type: types.ADD_MOVIE_IN_THEATER,
             payload: Object.keys(moviesMap).map(k => moviesMap[k]),
@@ -50,7 +51,7 @@ export function* pivotSaga() {
     }
 
     if(moviesMap) {
-        yield delay(1500)
+        //yield delay(1500)
         yield put({
             type: types.ADD_MOVIE_COMING_SOON,
             payload: Object.keys(moviesMap).map(k => moviesMap[k]),
@@ -67,3 +68,40 @@ export function* pivotSaga() {
 
     //yield put({ type: types.FETCH_MV_IN_THEATER_DONE })
 }
+
+export function* currentSaga(id) {
+
+    const res = yield call(getMovieDetails, id)
+
+    yield put({
+        type: types.ADD_MOVIE,
+        payload: res
+    })
+}
+//#endregion
+
+//#region -- watchers
+export function* currentWatcher() {
+    while(true) {
+        const action = yield take(types.ADD_MOVIE_ASYNC)
+        const { payload } = action || {}
+        const { id } = payload || {}
+
+        if(id) {
+            yield fork(currentSaga, id)
+        } else {
+            console.log(`invalid action: ${types.ADD_MOVIE_ASYNC}`)
+        }
+    }
+}
+
+export function* bannerWatcher() {
+    yield take(types.ADD_MOVIE_IN_THEATER_ASYNC)
+    yield fork(bannerSaga)
+}
+
+export function* pivotWatcher() {
+    yield take(types.ADD_MOVIE_COMING_SOON_ASYNC)
+    yield fork(pivotSaga)
+}
+//#endregion
